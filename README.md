@@ -1,28 +1,69 @@
+# Proyecto BackEnd III
 
-# BackEnd III
+Este proyecto es parte del curso de BackEnd III, donde se implementa un servidor que genera y gestiona usuarios y mascotas utilizando `Faker.js`. A continuación, se detallan las instrucciones para la configuración y uso del servidor.
 
-Proyecto de BackEnd III
+## Requisitos Previos
 
-##Funcionamiento del servidor
+- Tener instalado **Postman** para realizar peticiones.
+- Tener instalado **Node.js** y **npm**.
 
-Para iniciar el servidor se debe seguir los siguientes pasos:
-1- Descargar e instalar PostMan
-2- descargar la carpeta Backend_III
-3- Abrir la carpeta en Visual Studio Code
-4- Instalar los paquetes de dependencias bajo el comando "NPM I"
-5- Tipear en consola el siguiente comando "NPM RUN DEV"
-6- Abrir el explorador de internet y escribir la siguiente ruta localhost:8080/
-7- Para crear los usuarios ingresar la siguiente ruta "http://localhost:8080/api/mocks/mockinguser"
-8- Para agregar usuarios y pets abrir Postman y por medio de una peticion POST con la siguente ruta "http://localhost:8080/api/mocks/generateData?users=(indicar la cantidad)&pets=(indicar la cantidad)"
-9- Para visualizar la lista actualizada de usuarios y pets ingresar en el explorador la ruta "http://localhost:8080/api/mocks/generateData"
+## Instrucciones para Iniciar el Servidor
 
-## 1er Entrega modulo I
+1. Descargar la carpeta `Backend_III`.
+2. Abrir la carpeta en **Visual Studio Code**.
+3. Instalar las dependencias con el comando:
+    ```bash
+    npm install
+    ```
+4. Iniciar el servidor con el siguiente comando en la terminal:
+    ```bash
+    npm run dev
+    ```
+5. Abrir el navegador e ingresar a la siguiente dirección:
+    ```
+    http://localhost:8080/
+    ```
 
--Se crea app.js con el puerto 8080 para correr el servidor.
--Se crea la ruta "/api/mocks" donde se visualizaran los siguentes endpoints:
-        -"/mokcingUsers" : por medio del endPoint GET Se crean 50 usuarios a traves de faker con los detalles solicitados.
-        -"/generateData : por medio del endPoint POST se toma por parametro la cantidad de usuarios y pets que se desean agregar a la lista de cada uno.
-        -"/generateData : por medio del endPint GET se visualizan las listas de usuarios y pets actualizadas con los agregados en el metodo anterior.
--Se crea la carpeta Routes donde se almacenan las logicas de los endPoints en el archivo mock.router.js.
--Se crea la carpeta UTILS que contiene utils.js donde se almacena el modelo de usuario y pets con la informacion obtenida de FAKER y en el modelo de usuarios y encripta la contraseña.
+## Uso de la API
 
+### 1. Crear Usuarios de Prueba
+
+Para crear usuarios ficticios, accede al siguiente endpoint:
+
+GET http://localhost:8080/api/mocks/mockinguser
+
+Este endpoint genera 50 usuarios utilizando `Faker.js`.
+
+### 2. Generar Usuarios y Mascotas
+
+Para agregar una cantidad específica de usuarios y mascotas, realiza una petición POST a la siguiente ruta en **Postman**:
+
+POST http://localhost:8080/api/mocks/generateData?users={cantidad}&pets={cantidad}
+
+**Parámetros**:
+- `users`: Número de usuarios a generar.
+- `pets`: Número de mascotas a generar.
+
+### 3. Ver Listas Actualizadas
+
+Para visualizar las listas actualizadas de usuarios y mascotas generadas, accede al siguiente endpoint:
+
+GET http://localhost:8080/api/mocks/generateData
+
+## Estructura del Proyecto
+
+- `app.js`: Archivo principal donde se configura y se inicia el servidor.
+- `routes/mock.router.js`: Contiene la lógica de los endpoints de la API.
+- `utils/utils.js`: Contiene los modelos de usuarios y mascotas, así como funciones de utilidad como el encriptado de contraseñas.
+  
+## Detalles del Proyecto
+
+### Primer Entrega - Módulo I
+
+1. **Servidor**: El servidor corre en el puerto `8080`.
+2. **Rutas**:
+    - `/api/mocks/mockinguser`: Crea 50 usuarios de prueba.
+    - `/api/mocks/generateData`: Permite agregar usuarios y mascotas según la cantidad especificada.
+    - `/api/mocks/generateData` (GET): Muestra las listas actualizadas de usuarios y mascotas.
+
+---
